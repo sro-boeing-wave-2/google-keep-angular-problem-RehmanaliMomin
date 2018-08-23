@@ -13,7 +13,6 @@ export class HeroService {
 
   constructor(private http : HttpClient) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-
   }
 
   get(){

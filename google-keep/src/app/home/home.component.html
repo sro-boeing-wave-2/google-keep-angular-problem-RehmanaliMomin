@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-      <app-add-or-update-todo (notesCreated)="createOrUpdateNotes($event)" [notesInfo]="currentNotes"></app-add-or-update-todo>
+      <app-add-or-update-todo (notesEdited)="editNotes($event)" (notesCreated)="createNotes($event)" [notesAddInfo]="notesAddInfo" [notesEditInfo]="notesEditInfo"></app-add-or-update-todo>
     </div>
     <div class="col-md-8">
       <app-todo-component [notesData] = "notesData" (editClicked)="editClicked($event)" (newClicked)="newClicked($event)" (recordDeleted)="deleteClicked($event)"></app-todo-component>

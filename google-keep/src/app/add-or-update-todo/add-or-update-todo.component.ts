@@ -9,34 +9,45 @@ import { INotes } from '../../notes';
 export class AddOrUpdateTodoComponent implements OnInit {
 
   @Output() notesCreated = new EventEmitter<any>();
-  @Input() notesInfo: any;
+  @Output() notesEdited = new EventEmitter<any>();
+  @Input() notesAddInfo: any;
+  @Input() notesEditInfo: any;
 
   public buttonText = 'Save';
 
   constructor() {
-    this.clearNotesInfo();
+    //this.clearNotesInfo();
   }
 
   ngOnInit() {
-    this.notesInfo = this.notesInfo ? this.notesInfo : { id: 1, isPinned: false, text: "" , title: "This is the title" };
-    console.log(this.notesInfo);
+    this.notesAddInfo = this.notesAddInfo ? this.notesAddInfo : { id: 0, isPinned: false, text: "" , title: "This is the title" };
+    console.log(this.notesAddInfo);
   }
 
   clearNotesInfo(){
-    this.notesInfo = {
-
+    this.notesAddInfo = {
       id:0,
       title:'',
       text:'',
       isPinned:false,
-
     };
+    this.notesEditInfo={
+      id:0,
+      title:'',
+      text:'',
+      isPinned:false,
+    }
   }
 
-  public addOrUpdateNotesRecord = function(event) {
-    this.notesCreated.emit(this.notesInfo);
+  AddNotesRecord(event) {
+    this.notesCreated.emit(this.notesAddInfo);
     this.clearNotesInfo();
   };
 
+  UpdateNotesRecord(event) {
+    console.log('updte REcord');
+    this.notesEdited.emit(this.notesEditInfo);
+    this.clearNotesInfo();
+  };
 }
 
