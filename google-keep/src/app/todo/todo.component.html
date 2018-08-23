@@ -1,0 +1,23 @@
+<a href="#" id="new-button">New</a>
+<table>
+<thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Pinned status</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let note of notesData">
+        <td>{{ note.id }}</td>
+        <td>{{ note.title }}</td>
+        <td>{{ note.text }}</td>
+        <td>{{ note.isPinned }}</td>
+        <td>
+            <a href="#" (click)="editRecord(note)">Edit</a>
+            <a href="#" (click)="deleteRecord(note)">Delete</a>
+        </td>
+    </tr>
+</tbody>
+</table>
